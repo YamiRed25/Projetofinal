@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100vh;
+}
+#icone-menu{
+    background-color: #7D26B8;
+    color: white;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    margin:15px 0px -10px 0px ;
+    
+
+}
+#icone-menu:hover{
+    background-color: #E91E63;
+    color: #7D26B8;
+}
+.menu-categorias{
+    display: none;
+    text-align: center;
+}
+.item-menu{
+    display: block;
+    margin: 0;
+    padding-bottom: 10px;
+    border-top: 2px solid #6c3eb6;
+    border-radius: 20px;
+}
+.item-menu:hover{
+    background-image: linear-gradient(to right, #E91E63, #7D26B8 );
+}
+
+

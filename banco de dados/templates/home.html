@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Área do Usuário</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="tela-home">
+  <div class="home-container">
+    <h1>Bem-vindo, {{ usuario }}!</h1>
+    <p>Você está logado com sucesso 🎉</p>
+    <a href="{{ url_for('logout') }}" class="btn-sair">Sair</a>
+  </div>
+</body>
+</html>

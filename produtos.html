@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Primeiro Site | Detalhes do Produto</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/273/273127.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css" media="screen and (orientation: portrait)">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+    <link rel="stylesheet" href="desktop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body onresize="mudouTamanho()">
+    
+    <header class="barra-principal">
+        <div class="cabecalho-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="https://images.vexels.com/media/users/3/135698/isolated/preview/712ea6d32c097fff016ce5edc03347c7-icone-do-circulo-da-caneca-de-cafe.png" alt="Logo da Loja de Canecas" />
+                </a>
+            </div>
+
+            <div class="busca">
+                <input type="text" placeholder="Buscar produto..." id="campo-pesquisa" />
+                <button id="botao-pesquisa"><i class="fas fa-search"></i></button>
+            </div>
+
+            <section class="icones-direita">
+                <div class="icone-item">
+                    <i class="fas fa-comment-dots"></i>
+                    <span><a href="https://www.twitch.tv/" target="_blank" id="link-central">Central de Atendimento</a></span>
+                </div>
+                <div class="icone-item" id="abrir-login"> 
+                    <i class="fas fa-user"></i>
+                    <span>Login</span>
+                </div>
+                
+                <div class="icone-item carrinho" id="abrir-carrinho">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrinho <span id="contador-carrinho">0</span></span>
+                </div>
+            </section>
+        </div>
+        
+        <span class="material-symbols-outlined" id="icone-menu" onclick="clickMenu()">menu</span>
+        <nav class="menu-categorias" id="itens">
+            <a href="#" class="item-menu principal">Todas as categorias</a> <br>
+            <a href="#" class="item-menu">Coleção</a> 
+            <a href="#" class="item-menu">Caneca Mágica</a> 
+            <a href="#" class="item-menu">Canecas com Foto</a> 
+            <a href="#" class="item-menu">Presentes</a> <br>
+            <a href="#" class="item-menu">Personalize o seu Jeito</a> 
+            <a href="#" class="item-menu outlet">OUTLET</a>
+        </nav>
+    </header>
+
+    <div id="modal-login" class="modal"> 
+        <div class="modal-content">
+            <span class="close-button" id="fechar-login">&times;</span>
+            <h2>Entrar na sua conta</h2>
+            <input type="text" id="usuario" placeholder="Usuário" />
+            <input type="password" id="senha" placeholder="Senha" />
+            <button onclick="fazerLogin()">Login</button>
+            <p id="mensagem-login"></p>
+        </div>
+    </div>
+
+    <section id="modal-carrinho" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Seu Carrinho de Compras</h2>
+            <div id="lista-carrinho"><p>Seu carrinho está vazio.</p></div>
+            <div class="modal-total">
+                <h3>Total: <span id="valor-total">R$ 0,00</span></h3>
+            </div>
+            <button class="botao-finalizar">Finalizar Compra</button>
+        </div>
+    </section>
+
+    <main class="secao-detalhe">
+        <div class="produto-container">
+            
+         <div class="produto-imagens">
+    <div class="zoom-container">
+        <img id="imagem-principal" src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m3lx406ssw1hc1@resize_w900_nl.webp" alt="Produto Principal" class="imagem-principal">
+    </div>
+
+    <div class="miniaturas">
+        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m3lx406ssw1hc1@resize_w900_nl.webp" alt="Miniatura 1" class="miniatura active">
+        <img src="https://dcdn-us.mitiendanube.com/stores/005/791/987/products/preto-f4665ba50b7964658617390538854676-1024-1024.png" alt="Miniatura 2" class="miniatura">
+        <img src="https://www.neddpublicidade.com.br/wp-content/images/produtos/large/1164_zuqa0vhu96hk7q5teg8vx.jpg" alt="Miniatura 3" class="miniatura">
+    </div>
+</div>
+            
+
+            <div class="produto-detalhes">
+                <h1 class="titulo-produto">Caneca Exclusiva Coração Azul</h1>
+                
+                <p class="avaliacao">★★★★★</p> <p>(182 Avaliações)</p>
+                
+                <span class="preco-antigo">De R$ 50,00</span>
+                <p class="preco-detalhe">R$ 39,90</p>
+               
+                
+                <div class="variacoes">
+                    <label>Cor:</label>
+                    <button class="btn-variacao active">Azul</button>
+                    <button class="btn-variacao">Vermelha</button>
+                    <button class="btn-variacao">Amarela</button>
+                </div>
+
+                <div class="quantidade-selector">
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" value="1" min="1" max="10">
+                </div>
+                
+                <button class="btn-comprar-detalhe" id="btn-adicionar-detalhe">
+                    Adicionar ao Carrinho
+                </button>
+
+                <div class="descricao">
+                    <h2>Descrição Completa</h2>
+                    <p>Caneca de cerâmica de alta qualidade com estampa de coração. Ideal para presentear e colecionar. Capacidade de 325ml. Acompanha caixa personalizada.</p>
+                    <ul>
+                        <li>Material: Cerâmica Premium</li>
+                        <li>Capacidade: 325 ml</li>
+                        <li>Pode ir ao micro-ondas e lava-louças</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href="https://api.whatsapp.com/send?phone=5585992113998&text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20canecas." target="_blank" class="whatsapp-float">
+        <img src="https://w7.pngwing.com/pngs/616/594/png-transparent-computer-icons-whatsapp-whats-text-logo-symbol-thumbnail.png" alt="Logo do WhatsApp" class="whatsapp-icon-img">
+    </a>
+    
+    <section class="area-comentarios">
+    <h3>Deixe seu Comentário</h3>
+    
+    <form class="formulario-comentario">
+        <input type="text" id="nome-coment" placeholder="Seu Nome" required>
+        <textarea id="texto-coment" placeholder="Escreva seu comentário aqui..." required></textarea>
+        <button type="submit" class="btn-enviar-comentario">Enviar</button>
+    </form>
+    
+    <div class="lista-comentarios" id="lista-comentarios">
+        <div class="comentario-item">
+            <span class="comentario-nome">João V.</span>
+            <p class="comentario-texto">Excelente produto, entrega super rápida!</p>
+            <span class="comentario-data">15/11/2025</span>
+        </div>
+    </div>
+</section>
+<div class="bloco-avaliacao">
+    <span class="estrelas-avaliacao" id="estrelas-avaliacao"></span>
+    <span class="contagem-avaliacao" id="contagem-avaliacao"></span>
+</div>
+
+<section class="area-comentarios">
+    <h3>Comentários dos Clientes</h3>
+    <div class="lista-comentarios" id="lista-comentarios">
+        </div>
+</section>
+    <footer class="rodape-principal">
+        <div class="rodape-container">
+            <div class="rodape-coluna">
+                <h3>TRABALHO (Sua Loja)</h3>
+                <p>Canecas personalizadas com carinho e qualidade. Fazemos a sua ideia virar arte!</p>
+                <p>Email: contato@suaempresa.com.br</p>
+                <p>Telefone: (XX) XXXX-XXXX</p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Ajuda e Informações</h3>
+                <ul class="lista-links">
+                    <li><a href="#" class="link-rodape">Política de Privacidade</a></li>
+                    <li><a href="#" class="link-rodape">Rastrear Pedido</a></li>
+                    <li><a href="#" class="link-rodape">FAQ - Perguntas Frequentes</a></li>
+                </ul>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Siga-nos</h3>
+                <div id="redes-sociais">
+                    <a href="#" class="redes-sociais">Facebook</a> | <a href="#" class="redes-sociais">Instagram</a>
+                </div>
+                
+                <h3>Newsletter</h3>
+                <input class="caixa" type="email" placeholder="Seu melhor e-mail">
+                <button class="botao-assinar">Assinar</button>
+            </div>
+        </div>
+        
+        <div class="rodape-copy">
+            <p>&copy; 2025 TRABALHO DESENVOLVIMENTO WEB. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

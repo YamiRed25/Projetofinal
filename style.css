@@ -1009,13 +1009,12 @@ a.btn-comprar-link {
     gap: 15px;
   }
 
-  .grade-produtos {
+.grade-produtos {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
-
   .card-produto {
     max-width: calc(50% - 1rem);
   }

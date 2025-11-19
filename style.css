@@ -1,19 +1,9 @@
-/* Adiciona box-sizing para que padding e border não aumentem a largura total do elemento */
-* {
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0;
-}
-
+/* ======== ESTILO GERAL ======== */
 body {
     font-family: Arial, sans-serif;
+    margin: 0; 
+    padding: 0; 
     background-color: #ffffff; 
-}
-
-/* Remove sublinhado de links e herda a cor do texto pai */
-a {
-    text-decoration: none;
-    color: inherit;
 }
 
 /* ======== TOPO ROXO ACIMA DO MENU ======== */
@@ -24,140 +14,231 @@ a {
     text-align: center;
 }
 
-/* ======== BARRA ROXA PRINCIPAL (CONTAINER DO CABEÇALHO) ======== */
+/* ======== MENU PRINCIPAL (LOGO, BUSCA, ÍCONES) ======== */
+.main-nav {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* ======== BARRA ROXA PRINCIPAL ======== */
 .barra-principal {
-    background-color: #6c3eb6;
-    padding: 15px 20px;
-    color: white;
+  background-color: #6c3eb6;
+  padding: 15px 20px;
+  color: white;
 }
 
 .cabecalho-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 1200px; /* Limita a largura do conteúdo principal em telas grandes */
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* ======== LOGO ======== */
 .logo img {
-    height: 60px;
+  height: 60px;
 }
 
 /* ======== BARRA DE PESQUISA ======== */
 .busca {
-    flex: 1;
-    max-width: 500px;
-    margin: 0 20px;
-    display: flex;
-    position: relative; /* Essencial para o posicionamento dos resultados flutuantes */
+  flex: 1;
+  max-width: 500px;
+  margin: 0 20px;
+  display: flex;
 }
 
 .busca input {
-    flex: 1;
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.busca button {
+  padding: 8px 12px;
+  background-color: #fff;
+  color: #6c3eb6;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.resultados-pesquisa {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  border: 1px solid #ffffff;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: none;
+}
+
+.resultados-pesquisa div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #000000;
+}
+
+.resultados-pesquisa div:hover {
+  background-color: #f0f0f0;
+}
+
+/* ======== ÍCONES À DIREITA (LOGIN, CARRINHO, ETC) ======== */
+.icones-direita {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.icone-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+.icone-item i {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.botao-login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #6c3eb6;
+  color: #ffffff;
+  border: 2px solid #6c3eb6;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.botao-login:hover {
+  background-color: #7d26b8;
+  color: #fff;
+}
+
+.botao-login i {
+  font-size: 1.2rem;
+}
+/* ======== ÍCONE DO CARRINHO E CONTADOR ======== */
+.carrinho span {
+  position: relative;
+}
+.carrinho {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #6c3eb6;
+  color: #ffffff;
+  border: 2px solid #6c3eb6;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.carrinho:hover {
+  background-color: #7d26b8;
+  color: #fff;
+
+}
+#contador-carrinho {
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -15px;
+}
+
+/* ======== CONFIGURAÇÃO GERAL DA BUSCA ======== */
+.busca {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center;
+    margin: 0 40px;
+}
+
+.busca input {
     padding: 12px 15px;
     border: none;
     border-radius: 4px 0 0 4px;
+    width: 100%;
+    max-width: 600px;
     font-size: 1rem;
 }
 
 .busca button {
     padding: 12px 20px;
-    background-color: #b8264d; /* Cor do botão de busca */
+    background-color: #b8264d;
     color: white;
     border: none;
     border-radius: 0 4px 4px 0; 
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s;
 }
 
-.busca button:hover {
-    background-color: #9e1a3f;
-}
-
-/* Resultados da Pesquisa Dinâmica */
-.resultados-pesquisa {
-    position: absolute;
-    top: 100%; /* Abaixo do campo de busca */
-    left: 0;
-    width: 100%;
-    background-color: #ffffff; 
-    color: #333;
-    border: 1px solid #ccc;
-    z-index: 1000;
-    max-height: 300px;
-    overflow-y: auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: none; /* Controlado por JavaScript */
-}
-
-.resultados-pesquisa div {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
-}
-
-.resultados-pesquisa div:hover {
-    background-color: #f0f0f0;
-}
-
-/* ======== ÍCONES À DIREITA (LOGIN, CARRINHO, ETC) ======== */
-.icones-direita {
+/* ======== LOGIN / ATENDIMENTO / CARRINHO ======== */
+.usuario-carrinho {
+    flex-basis: 220px; 
+    flex-shrink: 0;
+    text-align: right;
     display: flex;
-    gap: 15px;
+    gap: 15px; 
     align-items: center;
+    justify-content: flex-end; 
 }
 
-/* Estilo para Botões e Ícones */
-.icone-item {
+.usuario-carrinho .atendimento,
+.usuario-carrinho .login {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-size: 12px;
-    cursor: pointer;
-    transition: color 0.3s;
+    text-align: right;
+    font-size: 0.9rem;
+    line-height: 1.2;
 }
 
-.icone-item i {
-    font-size: 20px;
-    margin-bottom: 4px;
+.usuario-carrinho a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
 }
 
-.icone-item:hover {
+.usuario-carrinho a:hover {
     color: #ffcc00;
 }
 
-/* Estilo unificado para botões de Login e Carrinho */
-.botao-login, .carrinho {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #6c3eb6;
-    color: #ffffff;
-    border: 2px solid #6c3eb6;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.usuario-carrinho .carrinho-icone {
+    font-size: 24px; 
+    position: relative;
+    padding: 5px;
 }
 
-.botao-login:hover, .carrinho:hover {
-    background-color: #7d26b8;
-    color: #fff;
-}
-
-/* Contador do Carrinho */
-#contador-carrinho {
-    background-color: red;
+.usuario-carrinho .carrinho-icone span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #E91E63;
     color: white;
-    font-size: 10px;
-    padding: 2px 6px;
     border-radius: 50%;
-    position: static; /* Ajustado para ficar ao lado, não flutuando sobre (se necessário) */
-    margin-left: 5px; 
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    line-height: 1;
 }
 
 /* ======== MENU DE CATEGORIAS ======== */
@@ -190,40 +271,38 @@ a {
     color: #ffcc00;
 }
 
-/* ======== SEÇÃO DESTAQUE / BANNER PRINCIPAL (HOME) ======== */
+/* ======== SEÇÃO DESTAQUE / BANNER PRINCIPAL ======== */
 .secao-principal {
     display: flex;
     justify-content: center;
     align-items: center; 
-    padding: 40px; 
+    padding: 40px 0;
     margin-top: 20px;
     max-width: 1000px; 
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.destaque-imagem {
-    flex: 60%;
-    text-align: center; 
 }
 
 .destaque-imagem img {
     max-width: 100%;
     height: auto;
     display: block;
-    border-radius: 4px;
 }
 
 .destaque-texto {
-    flex: 40%;
+    max-width: 40%; 
     padding-left: 50px; 
 }
 
+.destaque-imagem {
+    max-width: 60%;
+    text-align: center; 
+}
+
 .destaque-texto h2 {
-    font-size: 4rem; 
+    font-size: 5rem; 
     color: #e91e63; 
     line-height: 0.9; 
     margin-bottom: 10px;
@@ -253,110 +332,11 @@ a {
     background-color: #e06d00;
 }
 
-/* ======== SEÇÃO DE PRODUTOS (GRADE) ======== */
+/* ======== SEÇÃO DE PRODUTOS ======== */
 .secao-produtos {
     max-width: 1200px;
     margin: 40px auto; 
     padding: 0 20px;
-}
- 
-.avaliacao {
-    /* Escolha a cor que você quer (Amarelo/Ouro é o padrão) */
-    color: #FFD700; /* Ouro */
-}
-
-.avaliacao svg {
-    fill: #FFD700; 
-}
-
-/* Contêiner da Imagem Principal (necessário para o posicionamento do zoom) */
-.zoom-container {
-    position: relative;
-    overflow: hidden; /* Importante para o efeito de lupa não vazar */
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
-/* Garante que a imagem principal não quebre o layout */
-.imagem-principal {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: opacity 0.1s; /* Transição para o efeito de clareamento no zoom */
-    box-shadow: none; /* Removido o box-shadow redundante */
-}
-
-/* 1. Contêiner Principal */
-.variacoes {
-    /* CHAVE: Habilita o Flexbox para alinhar os itens horizontalmente */
-    display: flex; 
-    /* Alinha verticalmente os itens no centro (útil para alinhamento da label com os botões) */
-    align-items: center; 
-    /* Espaçamento entre a linha de variações e a próxima seção (como a quantidade) */
-    margin-bottom: 15px;
-}
-
-/* 2. Estilo para a Label "Cor:" */
-.variacoes label {
-    /* Adiciona um pequeno espaçamento à direita da label para separá-la dos botões */
-    margin-right: 10px;
-    font-weight: bold; /* Deixa o texto da label em negrito */
-    color: #333;
-}
-
-/* 3. Estilo para os Botões de Variação */
-.btn-variacao {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: white; /* Garante que o fundo do botão seja branco */
-    cursor: pointer;
-    font-size: 0.9rem;
-    
-    /* Espaçamento entre os botões de cor */
-    margin-right: 5px; 
-    
-    transition: all 0.2s;
-}
-
-/* 4. Estilo para o Botão Ativo/Selecionado */
-.btn-variacao.active {
-    border-color: #ff9800; /* Borda laranja para a cor selecionada */
-    background-color: #fff0d9; /* Fundo levemente laranja */
-    font-weight: bold;
-    color: #333;
-}
-
-.btn-variacao:hover {
-    background-color: #f0f0f0;
-}
-/* O elemento Lupa em si */
-.lupa-zoom {
-    position: absolute;
-    border: 3px solid #7d26b8; /* Borda da lupa */
-    border-radius: 50%; /* Formato circular */
-    height: 400px; /* Tamanho da lupa */
-    width: 400px;
-    opacity: 0; /* Começa invisível */
-    pointer-events: none; /* Garante que a lupa não atrapalhe a interação com o mouse */
-    transform: translate(-50%, -50%); /* Centraliza a lupa no cursor */
-    background-repeat: no-repeat;
-    display: none; /* Controlado pelo JS */
-    z-index: 10;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    cursor: none; /* Esconde o cursor padrão */
-}
-
-/* Efeito ao passar o mouse: a lupa se torna visível */
-.zoom-container:hover .lupa-zoom {
-    opacity: 1;
-}
-
-/* Ajustes nas Miniaturas */
-.miniatura.active {
-    border-color: #ff9900; /* Mantém o destaque na foto selecionada */
-    box-shadow: 0 0 5px rgba(255, 153, 0, 0.7);
 }
 
 .secao-produtos h2 {
@@ -366,34 +346,202 @@ a {
     text-align: center;
 }
 
-/* Contêiner dos Cards de Produto */
+/* ======== PÁGINA DE DETALHES DO PRODUTO ======== */
+.secao-detalhe {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.produto-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.produto-imagens {
+  flex: 1;
+  min-width: 300px;
+}
+
+.zoom-container {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.imagem-principal {
+  max-width: 100%;
+  height: auto;
+}
+
+.miniaturas {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.miniaturas img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.miniaturas img.active,
+.miniaturas img:hover {
+  border-color: #7d26b8;
+}
+
+.produto-detalhes {
+  flex: 1;
+  min-width: 300px;
+}
+
+.titulo-produto {
+  font-size: 2rem;
+  color: #7d26b8;
+  margin-bottom: 10px;
+}
+
+.avaliacao {
+  color: gold;
+  font-size: 1.2rem;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: red;
+}
+
+.preco-detalhe {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: green;
+  margin: 10px 0;
+}
+
+.variacoes {
+  margin: 15px 0;
+}
+
+.btn-variacao {
+  padding: 8px 14px;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-variacao.active {
+  background-color: #7d26b8;
+  color: white;
+  border-color: #7d26b8;
+}
+
+.quantidade-selector {
+  margin: 15px 0;
+}
+
+.btn-comprar-detalhe {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-comprar-detalhe:hover {
+  background-color: #fb8c00;
+}
+
+.descricao {
+  margin-top: 20px;
+}
+
+.descricao h2 {
+  color: #7d26b8;
+  margin-bottom: 10px;
+}
+
+/* ======== COMENTÁRIOS ======== */
+.area-comentarios {
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.formulario-comentario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.formulario-comentario input,
+.formulario-comentario textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn-enviar-comentario {
+  background-color: #7d26b8;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.comentario-item {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.comentario-nome {
+  font-weight: bold;
+  color: #333;
+}
+
+.comentario-data {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* ======== GRADE DE PRODUTOS ======== */
 .grade-produtos {
     display: flex;
     flex-wrap: wrap; 
     gap: 20px; 
-    justify-content: center; 
+    justify-content: flex-start; 
 }
 
-/* Card Individual de Produto */
+/* ======== CARD DE PRODUTO ======== */
 .card-produto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: calc(25% - 15px); /* Cria 4 colunas em telas grandes */
-    min-width: 250px;
-    box-sizing: border-box;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 250px;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
 .card-produto:hover {
     transform: translateY(-5px); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card-produto img {
@@ -403,158 +551,168 @@ a {
     border-radius: 4px;
     margin-bottom: 10px;
 }
-/* ======== ÁREA DE COMENTÁRIOS ======== */
-.area-comentarios {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+/* ======== BOTÃO COMPRAR ======== */
+.btn-comprar {
+  background-color: #7a3eb0;
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-adicionar {
+  background-color: #ff9800; /* Laranja */
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-adicionar:hover {
+  background-color: #fb8c00; /* Laranja mais escuro */
+}
+a.btn-comprar-link {
+  display: inline-block;
+  background-color: #7a3eb0;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  min-width: 120px; /* força largura mínima */
+  height: 40px;      /* força altura fixa */
+  box-sizing: border-box;
 }
 
-.area-comentarios h3 {
-    color: #6c3eb6;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-}
 
-/* Formulário */
-.formulario-comentario {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 30px;
+.btn-comprar-link:hover {
+  background-color: #d63f6f;
+  transform: scale(1.05);
 }
-
-.formulario-comentario input,
-.formulario-comentario textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-.formulario-comentario textarea {
-    resize: vertical; /* Permite redimensionar apenas verticalmente */
-    min-height: 100px;
-}
-
-.btn-enviar-comentario {
-    background-color: #4CAF50; /* Verde */
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.btn-enviar-comentario:hover {
-    background-color: #45a049;
-}
-
-/* Item de Comentário Individual */
-.comentario-item {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    background-color: white;
-}
-
-.comentario-nome {
-    font-weight: bold;
-    color: #6c3eb6;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.comentario-texto {
-    margin-bottom: 5px;
-    line-height: 1.5;
-}
-
-.comentario-data {
-    font-size: 0.8rem;
-    color: #777;
-}
-/* ======== ESTILOS DE PREÇO NO CARD ======== */
+/* ======== atualiza os preço ======== */
 .preco-produto {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 10px 0;
-    text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 10px 0;
+  text-align: center;
 }
 
 .pix-preco {
-    color: green;
-    font-weight: bold;
+  color: green;
+  font-weight: bold;
 }
 
 .desconto {
-    color: #d63f6f;
-    font-size: 0.9rem;
+  color: #d63f6f;
+  font-size: 0.9rem;
 }
 
 .preco-original {
-    color: red;
-    text-decoration: line-through;
-    font-size: 1rem;
+  color: red;
+  text-decoration: line-through;
+  font-size: 1rem;
 }
 
 .parcelamento {
-    color: #555;
-    font-size: 0.9rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* ======== banner promocional flutuante ======== */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.form-desconto {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.form-desconto input[type="email"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form-desconto button {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-desconto button:hover {
+  background-color: #fb8c00;
 }
 
 
-/* ======== BOTÕES NO CARD ======== */
-
-/* Botão Link (geralmente para ir para o detalhe) */
-a.btn-comprar-link {
-    display: block;
-    width: 100%;
-    background-color: #7a3eb0;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 6px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 6px;
+.popup.mostrar {
+  visibility: visible;
+  opacity: 1;
 }
 
-.btn-comprar-link:hover {
-    background-color: #d63f6f;
-    transform: scale(1.02);
+.popup-conteudo {
+  position: relative; /* botão dentro */
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 700px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-/* Botão Adicionar ao Carrinho (com feedback) */
-.btn-adicionar {
-    background-color: #ff9800; /* Laranja */
-    color: #fff;
-    border: none;
-    padding: 10px 16px;
-    width: 100%;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 6px;
-}
-.btn-adicionar:hover {
-    background-color: #fb8c00; /* Laranja mais escuro */
+.popup-conteudo img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-/* Botão WhatsApp no Card */
+.fechar-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+
+/* ======== BOTÃO WHATSAPP EM CADA CARD ======== */
 .btn-whatsapp-card {
     display: block;
+    text-decoration: none;
     text-align: center;
     color: #4CAF50;
     border: 1px solid #4CAF50;
@@ -571,242 +729,6 @@ a.btn-comprar-link {
     color: white;
 }
 
-/* ======== PÁGINA DE DETALHES DO PRODUTO (Estilo Shopee) ======== */
-
-.secao-detalhe {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 30px auto;
-}
-
-.produto-container {
-    display: flex; /* Coloca Imagem e Detalhes lado a lado */
-    flex-wrap: wrap; 
-    gap: 40px;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Contêiner das Imagens (60% do espaço, limitado a 500px) */
-.produto-imagens {
-    flex: 0 0 45%; /* Ocupa 45% do contêiner */
-    min-width: 300px; 
-    max-width: 500px; /* CHAVE: Limita o tamanho máximo do bloco de imagens */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Imagem Principal */
-.imagem-principal {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Miniaturas (Galeria) */
-.miniaturas {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-    justify-content: center;
-}
-
-.miniatura {
-    width: 60px; /* Largura fixa */
-    height: 60px; /* Altura fixa para ser um quadrado */
-    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 5px;
-    transition: border-color 0.2s;
-}
-
-.miniatura:hover, .miniatura.active {
-    border-color: #ff9900; /* Destaque na miniatura selecionada */
-}
-
-/* Contêiner de Detalhes (40% do espaço) */
-.produto-detalhes {
-    flex: 1; /* Ocupa o restante do espaço */
-    padding-top: 10px;
-    min-width: 300px;
-}
-
-.titulo-produto {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.preco-detalhe {
-    font-size: 2.5rem;
-    color: #1cab0f;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-.preco-antigo {
-
-  font-size: 1.5rem;
-  color: red;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-/* ======== ESTILOS PARA CORREÇÃO DO SELETOR DE QUANTIDADE ======== */
-
-/* 1. Contêiner Principal */
-.quantidade-selector {
-    /* CHAVE: Habilita o Flexbox para alinhar a label e o input horizontalmente */
-    display: flex; 
-    /* Alinha verticalmente os itens no centro */
-    align-items: center; 
-    /* Adiciona um espaçamento entre a linha de quantidade e o botão de "Adicionar" */
-    margin-bottom: 20px;
-    /* Espaço entre a label e o input */
-    gap: 10px; 
-}
-
-/* 2. Estilo para a Label "Quantidade:" */
-.quantidade-selector label {
-    font-weight: bold; /* Deixa o texto em negrito */
-    color: #333;
-    /* Garante que o texto não se estique */
-    white-space: nowrap; 
-}
-
-/* 3. Estilo para o Input de Número */
-.quantidade-selector input[type="number"] {
-    width: 60px; /* Largura pequena e fixa */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    text-align: center; /* Centraliza o número dentro da caixa */
-    font-size: 1rem;
-    color: #333;
-}
-
-.descricao {
-
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 5,4rem;
-  margin: auto;
-}
-
-/* Seção de Quantidade e Compra */
-.secao-compra {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.secao-compra input[type="number"] {
-    width: 80px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.btn-comprar-detalhe {
-    background-color: #ff9800;
-    color: #fff;
-    font-weight: bold;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-comprar-detalhe:hover {
-    background-color: #fb8c00;
-}
-
-
-/* ======== POPUP / BANNER PROMOCIONAL FLUTUANTE ======== */
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    visibility: hidden; /* Controlado por JS para animação */
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.popup.mostrar {
-    visibility: visible;
-    opacity: 1;
-}
-
-.popup-conteudo {
-    position: relative; 
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    max-width: 700px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-.popup-conteudo img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.fechar-popup {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    color: #333;
-    cursor: pointer;
-    background: none;
-    border: none;
-}
-
-.form-desconto {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.form-desconto input[type="email"] {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
-
-.form-desconto button {
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.form-desconto button:hover {
-    background-color: #fb8c00;
-}
-
 /* ======== BANNER SECUNDÁRIO ======== */
 .banner-imagem {
     max-width: 100%; 
@@ -821,483 +743,426 @@ a.btn-comprar-link {
     margin: 0 auto;
 }
 
-/* ======== MODAIS (LOGIN E CARRINHO) ======== */
+/* ======== RODAPÉ ======== */
+.rodape-principal {
+  background-color: #810899;
+  color: #f8f8f8;
+  padding: 40px 0 10px 0;
+  margin-top: 40px;
+}
 
-/* Modal (Fundo escuro que cobre toda a tela) */
+.rodape-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.rodape-coluna {
+  width: 30%;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.rodape-coluna h3 {
+  color: #ffcc00;
+  border-bottom: 2px solid #7d26b8;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.lista-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-links li {
+  margin-bottom: 10px;
+}
+
+.lista-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.lista-links li a:hover {
+  text-decoration: underline;
+  color: #ffcc00;
+}
+
+.rodape-copy {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+}
+
+/* Ícone do Instagram */
+.link-rodape i {
+  margin-right: 6px;
+  color: #ffcc00;
+}
+
+/* ======== MODAL DO CARRINHO ======== */
+/* Modal escondido por padrão */
 .modal {
-    display: none; /* Escondido por padrão, mostrado por JS */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-/* Conteúdo do Modal */
-.modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+/* Modal visível quando tiver a classe 'ativo' */
+.modal.ativo {
+  display: flex;
 }
+
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ======== CONTEÚDO DO MODAL ======== */
 
 .modal-content input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 
+}
 .modal-content button {
-    background-color: #7d26b8;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #7d26b8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-
+/* ======== BOTÃO DE FECHAR MODAL (X) ======== */
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
 .close-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    background: none;
-    border: none;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
 
-/* Título do Modal */
+.close:hover,
+.close:focus {
+  color: #000;
+}
+
+/* ======== TÍTULO DO MODAL ======== */
 .modal h2 {
-    text-align: center;
-    color: #7d26b8;
-    margin-bottom: 20px;
+  text-align: center;
+  color: #7d26b8;
+  margin-bottom: 20px;
 }
 
-/* ======== ITENS DENTRO DO MODAL CARRINHO ======== */
-
-#lista-carrinho {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    text-align: left; /* Alinha o texto da lista à esquerda */
+/* ======== ITENS DENTRO DO CARRINHO ======== */
+#itens-carrinho {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
 }
 
-.item-carrinho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
+#itens-carrinho li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
 }
 
-.item-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-weight: bold;
-}
-
-.btn-remover {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: background-color 0.2s;
-}
-
-.btn-remover:hover {
-    background-color: #c62828;
-}
-
-/* Estilo para o Total do Carrinho */
-.total-carrinho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-    border-top: 2px solid #ddd;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-#valor-total {
-    color: #b8264d;
-}
-
-/* Botões de Ação do Carrinho */
+/* ======== BOTÕES DENTRO DO MODAL (FINALIZAR E LIMPAR) ======== */
 .botoes-carrinho {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .botoes-carrinho button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 /* Botão de finalizar compra */
 .btn-finalizar {
-    background-color: #b93737;
-    color: white;
+  background-color: #b93737;
+  color: white;
 }
 
 .btn-finalizar:hover {
-    background-color: #d63f6f;
+  background-color: #d63f6f;
 }
 
 /* Botão de limpar carrinho */
 .btn-limpar {
-    background-color: #f44336;
-    color: white;
+  background-color: #f44336;
+  color: white;
 }
 
 .btn-limpar:hover {
-    background-color: #c62828;
+  background-color: #c62828;
 }
 
-/* ======== RODAPÉ ======== */
-.rodape-principal {
-    background-color: #810899; 
-    color: #f8f8f8;
-    padding: 40px 0 10px 0;
-    margin-top: 40px;
-}
-
-.rodape-container {
-    display: flex; 
-    justify-content: space-around;
-    max-width: 1200px;
-    margin: 0 auto; 
-    padding: 0 20px;
-}
-
-.rodape-coluna {
-    width: 30%; 
-}
-
-.rodape-coluna h3 {
-    color: #ffcc00; 
-    border-bottom: 2px solid #7d26b8; 
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-.lista-links {
-    color: white;
-    text-decoration: none;
-    list-style:none;
-}
-
-.link-rodape:hover {
-    text-decoration: underline;
-    color: #ffcc00;
-}
-
-.rodape-copy {
-    text-align: center;
-    padding-top: 20px;
-    margin-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória clara */
-}
-
-/* Estilos Adicionais do Rodapé */
-.botao-assinar {
-    background-color: #dd9b0c;
-    color: #8b168f;
-    border: 1px solid #ddc809;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.botao-assinar:hover {
-    background-color:#aa780d
-}
-
-.caixa-email {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 8px;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-/* ======== BOTÕES FIXOS E FLUTUANTES ======== */
-
-/* Botão Voltar ao Topo */
+/* ======== BOTÃO FIXO VOLTAR AO TOPO ======== */
 #btnTopo {
-    display: none; 
-    position: fixed;
-    bottom: 80px; /* Posicionado acima do WhatsApp */
-    right: 20px;
-    background-color: #7a3eb0;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    font-size: 18px;
-    transition: background-color 0.3s, transform 0.2s;
-    z-index: 1001;
+  display: none; 
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #7a3eb0;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  font-size: 18px;
+  transition: background-color 0.3s, transform 0.2s;
+  z-index: 1001;
 }
 
 #btnTopo:hover {
-    background-color: #d63f6f;
-    transform: scale(1.1);
+  background-color: #d63f6f;
+  transform: scale(1.1);
 }
-
-/* Botão Flutuante WhatsApp */
+/* ======== BOTÃO FLUTUANTE WHATSAPP ======== */
 .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .whatsapp-float img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+  transform: scale(1.1);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.4);
 }
 
 
-/* ======== RESPONSIVIDADE (MOBILE E TABLET) ======== */
-
-/* Telas até 992px (Tablet Horizontal) */
+/* ======== RESPONSIVIDADE (CELULARES E TABLETS) ======== */
 @media (max-width: 992px) {
-    .cabecalho-container {
-        flex-direction: column;
-    }
+  /* Ajustes gerais para telas médias */
+  .cabecalho-container {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .busca {
-        margin: 10px 0;
-        width: 100%;
-        max-width: 100%;
-    }
+  .busca {
+    margin: 10px 0;
+    width: 100%;
+  }
 
-    .icones-direita {
-        justify-content: center;
-        width: 100%;
-        margin-top: 10px;
-    }
+  .menu-categorias {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
 
-    .menu-categorias {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    /* Cards de produto em duas colunas */
-    .grade-produtos {
-        justify-content: center;
-    }
-    .card-produto {
-        width: calc(50% - 10px); /* Dois por linha com gap de 20px */
-        min-width: unset;
-    }
-
-    /* Detalhe do Produto: Imagem e Detalhes empilhados */
-    .produto-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .produto-imagens,
-    .produto-detalhes {
-        flex: 100%; /* Ocupa a largura total */
-        max-width: 100%;
-    }
-    .secao-compra {
-        justify-content: center;
-    }
+  .grade-produtos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-/* Telas até 768px (Tablet Vertical/Celular Grande) */
-@media (max-width: 768px) {
-    /* Menu Horizontal Arrastável (Scroll Horizontal) */
-    .grade-produtos {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory; /* Efeito de encaixe ao rolar */
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-        gap: 20px;
-        padding: 10px;
-        width: 100%;
-        flex-wrap: nowrap; /* Impede que os itens quebrem para a linha de baixo */
-        cursor: grab;
-        justify-content: flex-start;
-    }
-    .card-produto {
-        flex: 0 0 auto;
-        scroll-snap-align: start;
-        width: 280px; /* Largura fixa para rolagem suave */
-        min-width: 280px;
-    }
-    
-    /* Seção de Destaque */
-    .secao-principal {
-        flex-direction: column;
-        padding: 20px;
-    }
-    .destaque-texto,
-    .destaque-imagem {
-        width: 100%;
-        padding: 0;
-        text-align: center;
-    }
-    .destaque-texto h2 {
-        font-size: 3rem;
-    }
-
-    /* Rodapé empilhado */
-    .rodape-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-    }
-    .rodape-coluna {
-        width: 100%;
-        max-width: 400px;
-    }
+  .card-produto {
+    max-width: calc(50% - 1rem);
+  }
 }
 
-/* Telas até 600px (Celular) */
 @media (max-width: 600px) {
-    /* Barra de Busca empilhada */
-    .busca {
-        flex-direction: column;
-    }
-    .busca input, 
-    .busca button {
-        width: 100%;
-        border-radius: 4px;
-        margin-bottom: 5px;
-    }
-    
-    /* Contador do carrinho volta a ser flutuante no mobile */
-    .carrinho span {
-        position: relative;
-    }
-    #contador-carrinho {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        margin-left: 0;
-    }
-    
-    /* Detalhe do Produto: Botões e quantidade em coluna */
-    .secao-compra {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .secao-compra input[type="number"] {
-        width: 100%;
-    }
+  /* Ajustes para telas pequenas (celular) */
+  .main-nav, 
+  .cabecalho-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .busca {
+    flex-direction: column;
+  }
+
+  .busca input, 
+  .busca button {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 5px;
+  }
+
+  .icones-direita {
+    justify-content: center;
+  }
+
+  .secao-principal {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .destaque-texto, 
+  .destaque-imagem {
+    width: 100%;
+    padding: 0;
+  }
+
+  .card-produto {
+    max-width: 100%;
+  }
+
+  .rodape-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
 }
-
-/* 1. Esconde o ícone do menu em telas grandes */
-#icone-menu {
-    display: none; 
-}
-
-/* 2. O menu de categorias em desktop */
-.menu-categorias {
-    display: flex; 
-    /* Garante que o menu de desktop não se mova */
-    position: static; 
-}
-
-
-/* 3. MEDIA QUERY - O que acontece em telas pequenas */
 @media (max-width: 768px) {
-    
-    /* CABEÇALHO: Permite alinhar o logo e o ícone do menu corretamente */
-    .barra-principal {
-        padding: 15px 20px;
-    }
-    
-    /* 3.1. ÍCONE: Aparece em mobile */
-  #icone-menu {
-    display: block !important; 
-    font-size: 2rem;
-    cursor: pointer;
-    color: white; /* Garante que o ícone seja visível */
-    transition: transform 0.3s; /* Adiciona uma pequena animação */
+  .secao-principal {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .destaque-texto,
+  .destaque-imagem {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .destaque-texto h2 {
+    font-size: 3rem;
+  }
+
+  .desconto {
+    font-size: 1.2rem;
+  }
+
+  .botao-promocao {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+/* ======== GRADE DE PRODUTOS - DESKTOP ======== */
+.grade-produtos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
 }
 
-    /* 3.2. LISTA DE ITENS: Fica escondida por padrão (SEM a classe 'ativo') */
-    .menu-categorias {
-        /* Garante que a lista fique na frente e ocupe a largura total */
-        position: absolute;
-        top: 100px; /* Ajuste se o seu cabeçalho tiver altura diferente */
-        left: 0;
-        width: 100%;
-        
-        /* Layout de coluna para os itens */
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        
-        /* Cores e Z-index */
-        background-color: #7D26B8; /* CORRIGIDO: Usando a cor correta do seu menu */
-        z-index: 500;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        
-        /* CHAVE: Esconde por padrão */
-        display: none; 
-    }
-    
-    /* 3.3. ESTADO ATIVO: O que acontece quando o JS adiciona a classe 'ativo' */
-    .menu-categorias.ativo {
-        display: flex !important; /* MOSTRA a lista quando a classe 'ativo' é adicionada */
-    }
-    
-    /* Estilo dos itens no menu mobile */
-    .item-menu {
-        width: 100%; /* Ocupa a largura total do menu mobile */
-        padding: 15px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: left;
-    }
-    
-    /* Garante que o último item não tenha borda */
-    .item-menu:last-child {
-        border-bottom: none;
-    }
+/* ======== RESPONSIVIDADE PARA CELULAR ======== */
+@media (max-width: 768px) {
+ .grade-produtos {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+  flex-wrap: nowrap;
+  cursor: grab; /* indica que pode arrastar */
+}
+}
+.card-produto {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 250px;
+  min-width: 250px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+}
+.botao-assinar {
+  background-color: #dd9b0c;
+  color: #8b168f;
+  border: #ddc809;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.botao-assinar:hover {
+background-color:#aa780d
+}
+.caixa-email {
+  border-radius: 1px;
+  border: #000;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 2px 5px rgb(red, green, blue);
+}
+
+@media (max-width: 768px) {
+  .rodape-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rodape-coluna {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .rodape-coluna input[type="email"],
+  .rodape-coluna button {
+    width: 100%;
+  }
 }

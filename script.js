@@ -80,7 +80,7 @@ const dadosProdutos = {
         descricaoDetalhada: "Caneca de cerâmica de alta qualidade com a marca do sacrifício de Berserk. Item obrigatório para fãs do mangá e anime. Material: Cerâmica.",
         variacoes: ["Preta"],
         imagens: [
-            "image_0fd21c.png", // Arquivo carregado
+            "https://http2.mlstatic.com/D_NQ_NP_2X_763849-MLB80137570684_112024-F.webp", // Arquivo carregado
             "img/caneca_berserk_fundo_min.jpg" // Exemplo de imagem secundária
         ]
     },

@@ -7,6 +7,11 @@ function clickMenu() {
     menu.style.display = "block";
   }
 }
+function clickMenu() {
+  const menu = document.getElementById("itens");
+  menu.classList.toggle("mostrar");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const campoPesquisa = document.getElementById("campo-pesquisa");
   const botaoPesquisa = document.getElementById("botao-pesquisa");

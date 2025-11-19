@@ -1161,3 +1161,16 @@ background-color:#aa780d
     width: 100%;
   }
 }
+@media (max-width: 768px) {
+  #itens {
+    display: none;
+  }
+
+  #icone-menu {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+  }
+}
+

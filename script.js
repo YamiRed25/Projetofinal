@@ -1,4 +1,34 @@
 //pagina dos produtos
+document.addEventListener("DOMContentLoaded", () => {
+  const campoPesquisa = document.getElementById("campo-pesquisa");
+  const botaoPesquisa = document.getElementById("botao-pesquisa");
+  const resultados = document.getElementById("resultados-pesquisa");
+
+  botaoPesquisa.addEventListener("click", () => {
+    const termo = campoPesquisa.value.trim();
+    if (termo === "") {
+      resultados.innerHTML = "<div>Digite algo para buscar...</div>";
+    } else {
+      resultados.style.display = "block";
+      resultados.innerHTML = `<div>Resultado para: <strong>${termo}</strong></div>`;
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("popup-desconto");
+  const fecharPopup = document.querySelector(".fechar-popup");
+
+  // Exibir popup depois de alguns segundos
+  setTimeout(() => {
+    popup.classList.add("mostrar");
+  }, 3000);
+
+  // Fechar popup ao clicar no X
+  fecharPopup.addEventListener("click", () => {
+    popup.classList.remove("mostrar");
+  });
+});
 
 const dadosProdutos = {
     'caneca_coracao': {

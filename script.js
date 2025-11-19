@@ -81,7 +81,7 @@ const dadosProdutos = {
         variacoes: ["Preta"],
         imagens: [
             "https://http2.mlstatic.com/D_NQ_NP_2X_763849-MLB80137570684_112024-F.webp", // Arquivo carregado
-            "img/caneca_berserk_fundo_min.jpg" // Exemplo de imagem secundária
+            "https://product-hub-prd.madeiramadeira.com.br/1998505/images/ad8b18fa-716b-43fe-b25d-4d2cbcd7a1e270722579canecaberserkcavaloanime325mlceramicainteriorealcabranca3223101600x430.jpg" // Exemplo de imagem secundária
         ]
     },
     'caneca_personalizada': {

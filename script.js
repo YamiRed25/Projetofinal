@@ -1,4 +1,12 @@
 //pagina dos produtos
+function clickMenu() {
+  const menu = document.getElementById("itens");
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "block";
+  }
+}
 document.addEventListener("DOMContentLoaded", () => {
   const campoPesquisa = document.getElementById("campo-pesquisa");
   const botaoPesquisa = document.getElementById("botao-pesquisa");

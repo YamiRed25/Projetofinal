@@ -293,20 +293,20 @@ body {
 }
 
 .destaque-texto {
-    max-width: 40%; 
-    padding-left: 50px; 
+  flex: 1;
+  min-width: 280px;
+  padding: 20px;
+  text-align: center;
 }
-
 .destaque-imagem {
     max-width: 60%;
     text-align: center; 
 }
 
 .destaque-texto h2 {
-    font-size: 5rem; 
-    color: #e91e63; 
-    line-height: 0.9; 
-    margin-bottom: 10px;
+  font-size: 3rem;
+  color: #e91e63;
+  margin-bottom: 10px;
 }
 
 .desconto {
@@ -317,16 +317,16 @@ body {
 }
 
 .botao-promocao {
-    background-color: #f87d00; 
-    color: white;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    transition: background-color 0.3s;
+  background-color: #f87d00;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
 .botao-promocao:hover {
@@ -1075,19 +1075,13 @@ a.btn-comprar-link {
     padding: 20px;
   }
 
-  .destaque-texto,
-  .destaque-imagem {
+  .destaque-texto {
     width: 100%;
     padding: 0;
-    text-align: center;
   }
 
   .destaque-texto h2 {
-    font-size: 3rem;
-  }
-
-  .desconto {
-    font-size: 1.2rem;
+    font-size: 2.2rem;
   }
 
   .botao-promocao {
@@ -1095,6 +1089,7 @@ a.btn-comprar-link {
     padding: 10px 20px;
   }
 }
+
 /* ======== GRADE DE PRODUTOS - DESKTOP ======== */
 .grade-produtos {
   display: flex;

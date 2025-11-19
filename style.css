@@ -1162,10 +1162,15 @@ background-color:#aa780d
   }
 }
 @media (max-width: 768px) {
-  #itens {
-    display: none;
-  }
-
+ #itens {
+  display: none;
+  flex-direction: column;
+  background-color: #7d26b8;
+  padding: 10px;
+}
+#itens.mostrar {
+  display: flex;
+}
   #icone-menu {
     display: block;
     cursor: pointer;
